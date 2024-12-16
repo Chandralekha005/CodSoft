@@ -1,0 +1,43 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args) {
+        int attempts = 0;
+        final int maxAttempts = 5;
+        Scanner sc = new Scanner(System.in);
+
+        while (attempts < maxAttempts) {
+            System.out.print("User's guess:");
+            int guess = sc.nextInt();
+            Random r = new Random();
+            int low = 1;
+            int high = 100;
+            int result = r.nextInt(high - low) + low;
+            int score = 0;
+            System.out.print("Random number:");
+            System.out.println(result);
+            if(guess<1||guess>100) {
+                System.out.println("Enter a number from 1 to 100");
+            }else if (guess == result) {
+                System.out.println("Correct guess");
+                score++;
+                System.out.println("Score is:"+score);
+                break;
+            } else if (guess < result) {
+                System.out.println("Guess is too low, try again");
+                System.out.println("Score is:"+score);
+            } else {
+                System.out.println("Guess is too high, try again");
+                System.out.println("Score is:"+score);
+            }
+
+            attempts++;
+            System.out.println("Remaining attempts:" + (maxAttempts - attempts));
+        }
+        if (attempts == maxAttempts) {
+            System.out.println("You have run out of attempts");
+
+        }
+
+
+    }
+}

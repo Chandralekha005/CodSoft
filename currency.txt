@@ -1,0 +1,54 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        String dollar = "dollar";
+        String rupee = "rupee";
+        String pound = "pound";
+        String euro = "euro";
+        String yen = "yen";
+                                                          // SOME CONVERSIONS
+                                                          // dollar to rupee
+        Scanner sc = new Scanner(System.in);              // euro to dollar
+        System.out.print("Enter base currency:");         // pound to euro
+        String base = sc.next();                       // rupee to yen
+        System.out.print("Enter target currency:");       // euro to yen
+        String target = sc.next();
+       if(base.equals(dollar)&&target.equals(rupee)){
+           System.out.println("1 dollar = 83.17 rupee");
+           System.out.println("Enter amount in dollars:");
+           double doll = sc.nextDouble();
+           double rup = doll*83.17;
+           System.out.println("Amount is:"+" "+rup+" "+"rupees");
+
+       }else if(base.equals(euro)&&target.equals(dollar)){
+           System.out.println("1 euro = 1.10 dollar");
+           System.out.println("Enter amount in euro:");
+           double eur = sc.nextDouble();
+           double doll = eur*1.10;
+           System.out.println("Amount is:"+" "+doll+" "+"dollars");
+
+       }else if(base.equals(pound)&&target.equals(euro)){
+           System.out.println("1 pound = 1.15 euro");
+           System.out.println("Enter amount in pound:");
+           double pou = sc.nextDouble();
+           double eur = pou*1.15;
+           System.out.println("Amount is:"+" "+eur+" "+"euro");
+
+       }else if(base.equals(rupee)&&target.equals(yen)){
+           System.out.println("1 rupee = 1.72 yen");
+           System.out.println("Enter amount in rupees:");
+           double rup = sc.nextDouble();
+           double yens = rup*1.72;
+           System.out.println("Amount is:"+" "+yens+" "+"yen");
+
+       }else if(base.equals(euro)&&target.equals(yen)){
+           System.out.println("1 euro = 156.75 yen");
+           System.out.println("Enter amount in euro:");
+           double eur = sc.nextDouble();
+           double yens = eur*156.75;
+           System.out.println("Amount is:"+" "+yens+" "+"yen");
+
+        }
+
+    }
+}
