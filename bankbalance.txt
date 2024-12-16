@@ -1,0 +1,81 @@
+import java.util.*;
+interface ATMMachine{
+    Scanner sc = new Scanner(System.in);
+
+    float withdraw();
+    float deposit();
+    float checkBalance();
+    float checkBalance1();
+}
+class acctBalance{
+
+    static float bankBalance = 150000;
+
+}
+
+class ATM extends acctBalance implements ATMMachine {
+    float withdraw;
+    float deposit;
+    float avlBalance;
+
+    public float withdraw() {
+        withdraw = sc.nextFloat();
+        if (withdraw <= bankBalance) {
+            System.out.println("Transaction successful");
+            System.out.println("Amount withdrawn:" + " ");
+            return withdraw;
+
+        } else {
+            System.out.println("Not sufficient amount");
+            System.out.println("Transaction failed");
+        }
+        return -1;
+    }
+    public float checkBalance(){
+        System.out.println("Available balance is:");
+        if(withdraw<=bankBalance) {
+            avlBalance = bankBalance - withdraw;
+            return avlBalance;
+        }else{
+            avlBalance = bankBalance;
+        }
+        return avlBalance;
+    }
+
+    public float deposit() {
+        deposit = sc.nextFloat();
+        System.out.println("Deposition successful");
+        System.out.println("Amount deposited:" + " ");
+        return deposit;
+    }
+
+    public float checkBalance1() {
+        if (withdraw <= bankBalance) {
+            avlBalance = bankBalance - withdraw + deposit;
+            System.out.println("Available balance is:");
+            return avlBalance;
+        }else{
+            avlBalance = bankBalance + deposit;
+        }
+        return avlBalance;
+    }
+
+
+
+
+
+
+    public static void main(String[] args) {
+        System.out.println("Account balance:");
+        System.out.println(bankBalance);
+        ATM atm = new ATM();
+        System.out.println("Amount to be withdrawn:");
+        System.out.println(atm.withdraw());
+        System.out.println(atm.checkBalance());
+        System.out.println("Amount to be deposited:");
+        System.out.println(atm.deposit());
+        System.out.println(atm.checkBalance1());
+
+
+    }
+}
